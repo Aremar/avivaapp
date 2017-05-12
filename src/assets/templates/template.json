@@ -1,0 +1,106 @@
+{
+  "codigoProducto" : "U4071",
+  "codigoMoneda" : "1",
+  "fechaEfecto" : "2016-05-01T00:00:00.000+0000",
+  "fechaVencimiento" : null,
+  "duracionSeguro" : null,
+  "campania" : null,
+  "periodicidadPago" : "ME",
+  "codigoModalidad" : "0465",
+  "codigoMediador" : "3040205",
+  "canalComercializacion" : "RAC",
+  "porcentajeComision" : 15.0,
+  "porcentajeGasto" : 15.0,
+  "numeroEmpleado" : null,
+  "duracionPagoPrimas" : null,
+  "asegurado" : {
+    "sexo" : "H",
+    "fechaNacimiento" : "1980-04-01T01:00:00.000+0000"
+  },
+  "coberturas" : {
+    "item" : [ {
+      "codigoCobertura" : "FALL",
+      "capitalAsegurado" : 300000.0,
+      "tipoRevalorizacionCapital" : "SR",
+      "valorRevalorizacionCapital" : null,
+      "fechaEfecto" : "2016-05-01T00:00:00.000+0000",
+      "fechaVencimiento" : null,
+      "recargosBonificacionesCobertura" : null,
+      "renta" : null
+    }, {
+      "codigoCobertura" : "IPA",
+      "capitalAsegurado" : 300000.0,
+      "tipoRevalorizacionCapital" : "SR",
+      "valorRevalorizacionCapital" : null,
+      "fechaEfecto" : "2016-05-01T00:00:00.000+0000",
+      "fechaVencimiento" : null,
+      "recargosBonificacionesCobertura" : null,
+      "renta" : null
+    }, {
+      "codigoCobertura" : "BD",
+      "capitalAsegurado" : 0.0,
+      "tipoRevalorizacionCapital" : "SR",
+      "valorRevalorizacionCapital" : null,
+      "fechaEfecto" : "2016-05-01T00:00:00.000+0000",
+      "fechaVencimiento" : null,
+      "recargosBonificacionesCobertura" : null,
+      "renta" : null
+    } ]
+  },
+  "recargosBonificacionesCertificado" : {
+    "item" : [ {
+      "tipoRecargoBonificacion" : "PC",
+      "conceptoAplicacion" : "BO",
+      "fechaInicioRecargoBonificacion" : "2016-05-01T00:00:00.000+0000",
+      "fechaFinRecargoBonificacion" : "2017-05-01T00:00:00.00+0000",
+      "valorRecargoBonificacion" : 25.0,
+      "motivoRecargoBonificacion" : "cob_B0001",
+      "descConceptoAplicacion" : "BONIFICACI\u00d3N",
+      "descTipoRecargoBonificacion" : "PORCENTAJE SOBRE EL CAPITAL"
+    }, {
+      "tipoRecargoBonificacion" : "PC",
+      "conceptoAplicacion" : "BO",
+      "fechaInicioRecargoBonificacion" : "2017-05-01T00:00:00.00+0000",
+      "fechaFinRecargoBonificacion" : "2018-05-01T00:00:00.00+0000",
+      "valorRecargoBonificacion" : 12.5,
+      "motivoRecargoBonificacion" : "cob_B0001",
+      "descConceptoAplicacion" : "BONIFICACI\u00d3NN",
+      "descTipoRecargoBonificacion" : "PORCENTAJE SOBRE EL CAPITAL"
+    } ]
+  },
+  "cuestionarios" : null,
+  "datosRiesgo" : {
+    "item" : [ {
+      "valorAtributo" : "01/04/1980T01:00:00.000",
+      "tipoAtributo" : "FE",
+      "origen" : null,
+      "grupoRiesgo" : null,
+      "codigoAtributo" : "FNAC"
+    }, {
+      "valorAtributo" : "Hombre",
+      "tipoAtributo" : "AL",
+      "origen" : null,
+      "grupoRiesgo" : null,
+      "codigoAtributo" : "SEX"
+    }, {
+      "valorAtributo" : "false",
+      "tipoAtributo" : "BO",
+      "origen" : null,
+      "grupoRiesgo" : null,
+      "codigoAtributo" : "FU"
+    }, {
+      "valorAtributo" : "G1",
+      "tipoAtributo" : "AL",
+      "origen" : null,
+      "grupoRiesgo" : null,
+      "codigoAtributo" : "PRF"
+    }, {
+      "valorAtributo" : "G1",
+      "tipoAtributo" : "AL",
+      "origen" : null,
+      "grupoRiesgo" : null,
+      "codigoAtributo" : "PR"
+    } ]
+  },
+  "planAportacionesAhorro" : null
+}
