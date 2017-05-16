@@ -18,10 +18,11 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import 'rxjs/add/operator/map';
 
 
 export function createTranslateLoader(http: Http) {
-    return new TranslateStaticLoader(http, './assets/i18n', '.json');
+    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
 
 

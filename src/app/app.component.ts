@@ -7,7 +7,7 @@ import { ServicioDatos } from '../providers/servicio-datos';
 import { BaseDatos } from '../providers/base-datos';
 
 import { HomePage } from '../pages/home/home';
-
+import 'rxjs/add/operator/map';
 
 @Component({
   templateUrl: 'app.html',

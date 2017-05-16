@@ -42,7 +42,6 @@ export class TarificarPage {
 				data.coberturas.item[1].capitalAsegurado = 2000.0;
          		this.tarif = data;
 			});
-			
    
   }
 

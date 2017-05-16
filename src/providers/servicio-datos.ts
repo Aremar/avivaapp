@@ -62,7 +62,8 @@ export class ServicioDatos {
 
 		this.grantAuthorize()
 		.subscribe(data => {
-				/*let location: string*/ this.authorize = data.headers.get('Location');
+				let temp = data.headers;
+				/*let location: string*/ this.authorize = temp.get('Location');
 				//let part = location.split("=");
 				//this.authorize = part[1];
 			});
@@ -85,7 +86,7 @@ export class ServicioDatos {
   }  
 
   getTemplate(){
-		return this.http.get('../assets/templates/template.json')
+		return this.http.get('assets/templates/template.json')
 			.map(res => res.json());
 			
   }
