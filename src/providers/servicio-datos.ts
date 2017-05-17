@@ -20,6 +20,7 @@ export class ServicioDatos {
 	refresh: string;
 	plantilla: any;
 	URL: string;
+	windowHandle;
 
   constructor(public http: Http) {
   	this.idioma = 'esES';
@@ -48,40 +49,41 @@ export class ServicioDatos {
   
   grantAuthorize(){
 	  	
-		let accesURL = this.URL + '/tarificador/oauth/authorize?response_type=code&redirect_uri=' +  this.URL + '/test&client_id=' + this.client_id;
+		let accessURL = this.URL + '/tarificador/oauth/authorize?response_type=code&redirect_uri=' +  this.URL + '/test&client_id=' + this.client_id;
 		//obtiene el autorization code con el que llamar a OAuth
 		let headers = new Headers();
 		headers.append('Authorization', 'Basic ' + btoa(this.client_id+':'+this.client_secret));
 		
-		return this.http.post(accesURL, null, {
+		return this.http.post(accessURL, null, {
 				headers: headers
+			})
+			.subscribe(data => {
+				let location: string = data.headers.get('Location');
+				let part = location.split("=");
+				this.authorize = part[1];
 			});
   }
 
   grantToken(){
 
-		this.grantAuthorize()
-		.subscribe(data => {
-				let temp = data.headers;
-				/*let location: string*/ this.authorize = temp.get('Location');
-				//let part = location.split("=");
-				//this.authorize = part[1];
-			});
+		//this.grantAuthorize()
 		
-			
-		/*let oauthURL = this.URL + '/tarificador/oauth/token?grant_type=authorization_code&code='+this.authorize+'&client_id='+this.client_id+'&client_secret='+this.client_secret+'&redirect_uri='+this.URL+'/test';
-		
+		let oauthURLaccess = this.URL + '/tarificador/oauth/token?response_type=authorization_code&code='+ this.authorize +'&client_id='+this.client_id+'&client_secret='+this.client_secret+'&redirect_uri='+this.URL+'/test';
+		let oauthURLimplicit = this.URL + '/tarificador/oauth/authorize?response_type=token&client_id=' + this.client_id + '&redirect_uri=' +  this.URL + '/test&scope=read';
+		let oauthURLpass = this.URL + '/tarificador/oauth/token?grant_type=password&username=ibh&password=flags0116*&client_id='+this.client_id;
+		let oauthURLcred = this.URL + '/tarificador/oauth/token?grant_type=client_credentials&client_id='+this.client_id+'&client_secret='+this.client_secret;
+
 		//obtiene el token OAuth
 		let headers = new Headers();
 		headers.append('Authorization', 'Basic ' + btoa(this.client_id+':'+this.client_secret));
-		this.http.post(oauthURL, null, {
+		this.http.post(oauthURLimplicit, null, {
 				headers: headers
 			})
 			.map(res => res.json())
 			.subscribe(data => {
 				this.token = data.access_token;
 				this.refresh = data.refresh_token;
-			});*/
+			});
   
   }  
 

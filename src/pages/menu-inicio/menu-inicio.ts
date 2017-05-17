@@ -37,8 +37,8 @@ export class MenuInicioPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
 	
 	this.servicioDatos.grantToken();
-	this.temp = this.servicioDatos.getAuthorize();
-	this.temp2 = this.servicioDatos.getToken();
+	//this.temp = this.servicioDatos.getAuthorize();
+	this.temp = this.servicioDatos.getToken();
 	
 	let idioma = this.servicioDatos.getIdioma();
 	this.translateService.use(idioma);
