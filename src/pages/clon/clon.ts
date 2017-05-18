@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { TranslateService } from 'ng2-translate/ng2-translate'
+import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { TarificarPage } from '../tarificar/tarificar';
 import { ServicioDatos } from '../../providers/servicio-datos';
+import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 
 
 /*
@@ -21,6 +22,7 @@ export class ClonPage {
 	contenido: string;
 	
 	tarificarPage = TarificarPage;
+  menuInicioPage = MenuInicioPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
 	  
@@ -51,7 +53,8 @@ export class ClonPage {
   }
   
   goRoot() {
-	 this.navCtrl.remove(3,1).then(() => {this.navCtrl.pop();});
+    this.navCtrl.setRoot(this.menuInicioPage);
+	 //this.navCtrl.remove(3,1).then(() => {this.navCtrl.pop();});
   }
 	
   goTarificar() {

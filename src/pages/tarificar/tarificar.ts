@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { ServicioDatos } from '../../providers/servicio-datos';
+import { ResultadoPage } from '../resultado/resultado';
+import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 
 /*
   Generated class for the Tarificar page.
@@ -15,10 +17,12 @@ import { ServicioDatos } from '../../providers/servicio-datos';
 })
 export class TarificarPage {
 
+  menuInicioPage = MenuInicioPage;
+  resultadoPage = ResultadoPage;
 	contenido: string;
   tarif: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService, public loadingController:LoadingController) {
 	  
 	this.contenido = this.navParams.get('tipoProducto');
 	  
@@ -33,16 +37,35 @@ export class TarificarPage {
   }
   
   goRoot() {
-	 this.navCtrl.remove(4,1).then(() => {this.navCtrl.remove(3,1).then(() => {this.navCtrl.pop();})});
+	 this.navCtrl.setRoot(this.menuInicioPage);
+   //this.navCtrl.remove(4,1).then(() => {this.navCtrl.remove(3,1).then(() => {this.navCtrl.pop();})});
   }
   goTar(){
    this.servicioDatos.getTemplate()
    .subscribe(data => {
-				data.coberturas.item[0].codigoCobertura=this.contenido;
-				data.coberturas.item[1].capitalAsegurado = 2000.0;
-         		this.tarif = data;
+				//data.coberturas.item[0].codigoCobertura=this.contenido;
+				//data.coberturas.item[1].capitalAsegurado = 2000.0;
+         		this.tarif = JSON.stringify(data);
 			});
-   
+            
+      let loader = this.loadingController.create({
+            content: "Tarificando..."
+          });
+
+      loader.present().then(()=>
+
+      this.servicioDatos.getTarificacion(this.tarif)
+      .subscribe(data => {
+
+        
+         this.navCtrl.push(this.resultadoPage, {
+                     resultado: data
+                }).then(() => loader.dismiss());
+              })
+    );
+      
+
+      
   }
 
 }

@@ -101,4 +101,19 @@ export class ServicioDatos {
 			
   }
 
+  getTarificacion(cuerpo: string){
+		
+		let tarificadorURL = this.URL + '/tarificador/simulate/';
+		let headers = new Headers();
+		headers.append('Authorization', 'Bearer ' + 'dc9f2710-ff42-4f29-8b6d-d0c0132c82a4');
+		headers.append('Content-Type', 'application/json');
+				
+		return this.http.post(tarificadorURL, cuerpo, {
+				headers: headers
+			})
+			.map(res => res.json())
+
+
+  }
+
 }

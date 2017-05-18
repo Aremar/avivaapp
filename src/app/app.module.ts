@@ -1,7 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate';
 import { Http } from '@angular/http';
 import { HomePage } from '../pages/home/home';
@@ -12,6 +11,7 @@ import { CorporacionPage } from '../pages/corporacion/corporacion';
 import { AvivaYTuPage } from '../pages/aviva-y-tu/aviva-y-tu';
 import { ClonPage } from '../pages/clon/clon';
 import { TarificarPage } from '../pages/tarificar/tarificar';
+import { ResultadoPage } from '../pages/resultado/resultado';
 import { ServicioDatos } from '../providers/servicio-datos';
 import { BaseDatos } from '../providers/base-datos';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
@@ -37,7 +37,8 @@ export function createTranslateLoader(http: Http) {
 	AvivaYTuPage,
 	MenuInicioPage,
 	ClonPage,
-	TarificarPage
+	TarificarPage,
+  ResultadoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -58,7 +59,9 @@ export function createTranslateLoader(http: Http) {
 	AvivaYTuPage,
 	MenuInicioPage,
 	ClonPage,
-	TarificarPage
+	TarificarPage,
+  ResultadoPage
+  
   ],
   providers: [
     StatusBar,

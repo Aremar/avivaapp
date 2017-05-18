@@ -17,8 +17,8 @@ export class MyApp {
   rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public baseDatos: BaseDatos, public translateService: TranslateService) {
-    this.translateService.setDefaultLang('esGB');
-    this.translateService.use('esGB');
+    this.translateService.setDefaultLang('esES');
+    this.translateService.use('esES');
 	
 	platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
