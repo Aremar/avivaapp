@@ -20,19 +20,8 @@ export class ResultadoPage {
   menuInicioPage = MenuInicioPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
-      
-      /*let loader = this.loadingController.create({
-            content: "Tarificando..."
-          });
-
-      loader.present();
-*/
+     
      this.resultado = this.navParams.get('resultado');
-      //.subscribe(data => {
-      //            this.resultado = data;
-                  
-      //}//,() => {loader.dismiss()}
-//);
 
   }
   goRoot() {

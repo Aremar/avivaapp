@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate/ng2-translate';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServicioDatos } from '../../providers/servicio-datos';
 import { ResultadoPage } from '../resultado/resultado';
 import { MenuInicioPage } from '../menu-inicio/menu-inicio';
@@ -19,6 +20,7 @@ export class TarificarPage {
 
   menuInicioPage = MenuInicioPage;
   resultadoPage = ResultadoPage;
+  form;
 	contenido: string;
   tarif: any;
 

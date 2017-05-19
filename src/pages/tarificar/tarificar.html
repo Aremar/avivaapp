@@ -14,11 +14,24 @@
 <ion-content padding>
 	
 {{contenido}}
-<p>{{tarif}}</p>
-
-<ion-grid>
+<form (submit)="goTar()" [formGroup]="form">
+	<ion-grid>
 		<ion-row>
-			<ion-col><button ion-button (click)="goBack()" icon-only><ion-icon name='arrow-back'></ion-icon></button></ion-col><ion-col><button ion-button (click)="goTar()" icon-right>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button></ion-col>
+			<ion-item>
+				<ion-col><ion-label>Fallecimiento</ion-label><ion-checkbox formControlName="fallecimiento"></ion-checkbox></ion-col><ion-col><ion-label floating>Capital a asegurar</ion-label><ion-input type="number" formControlName="fallecimientoCapital"></ion-input></ion-col>
+			</ion-item>
+		</ion-row>
+		<ion-row>
+			<ion-item>
+				<ion-col><ion-label>Incapacidad Permanente Absoluta</ion-label><ion-checkbox formControlName="incapacidadPA"></ion-checkbox></ion-col><ion-col><ion-label floating>Capital a asegurar</ion-label><ion-input type="number" formControlName="incapacidadPACapital"></ion-input></ion-col>
+			</ion-item>
+		</ion-row>
+		<ion-row>
+			<ion-col><ion-label>Fecha Nacimiento</ion-label><ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month" formControlName="fechaNac"></ion-datetime></ion-col><ion-col><ion-label>Forma de Pago</ion-label><ion-select formControlName="pago"><ion-option value="mes">Mensual</ion-option><ion-option value="anyo">Anual</ion-option></ion-select></ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col><button ion-button (click)="goBack()" icon-only><ion-icon name='arrow-back'></ion-icon></button></ion-col><ion-col><button ion-button type="submit" icon-right>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button></ion-col>
 		</ion-row>
 	</ion-grid>
+</form>
 </ion-content>

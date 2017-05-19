@@ -77,9 +77,9 @@ export class ServicioDatos {
 		this.grantAuthorize();		
 
 		let oauthURLaccess = this.URL + '/tarificador/oauth/token?grant_type=authorization_code&code='+ this.authorize +'&client_id='+this.client_id+'&client_secret='+this.client_secret+'&redirect_uri='+this.URL+'/test';
-		let oauthURLimplicit = this.URL + '/tarificador/oauth/authorize?response_type=token&client_id=' + this.client_id + '&redirect_uri=' +  this.URL + '/test&scope=read';
-		let oauthURLpass = this.URL + '/tarificador/oauth/token?grant_type=password&username=ibh&password=flags0116*&client_id='+this.client_id;
-		let oauthURLcred = this.URL + '/tarificador/oauth/token?grant_type=client_credentials&client_id='+this.client_id+'&client_secret='+this.client_secret;
+		//let oauthURLimplicit = this.URL + '/tarificador/oauth/authorize?response_type=token&client_id=' + this.client_id + '&redirect_uri=' +  this.URL + '/test&scope=read';
+		//let oauthURLpass = this.URL + '/tarificador/oauth/token?grant_type=password&username=ibh&password=flags0116*&client_id='+this.client_id;
+		//let oauthURLcred = this.URL + '/tarificador/oauth/token?grant_type=client_credentials&client_id='+this.client_id+'&client_secret='+this.client_secret;
 
 		//obtiene el token OAuth
 		let headers = new Headers();
@@ -105,7 +105,7 @@ export class ServicioDatos {
 		
 		let tarificadorURL = this.URL + '/tarificador/simulate/';
 		let headers = new Headers();
-		headers.append('Authorization', 'Bearer ' + 'dc9f2710-ff42-4f29-8b6d-d0c0132c82a4');
+		headers.append('Authorization', 'Bearer ' + 'aac6ca5e-5711-43aa-aaaf-afe4dd1c43b2');
 		headers.append('Content-Type', 'application/json');
 				
 		return this.http.post(tarificadorURL, cuerpo, {
