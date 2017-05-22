@@ -17,17 +17,17 @@
 <form (submit)="goTar()" [formGroup]="form">
 	<ion-grid>
 		<ion-row>
-			<ion-item>
-				<ion-col><ion-label>Fallecimiento</ion-label><ion-checkbox formControlName="fallecimiento"></ion-checkbox></ion-col><ion-col><ion-label floating>Capital a asegurar</ion-label><ion-input type="number" formControlName="fallecimientoCapital"></ion-input></ion-col>
-			</ion-item>
+			
+				<ion-col><ion-item><ion-label>Fallecimiento</ion-label><ion-checkbox formControlName="fallecimiento" (click)="statFall = !statFall"></ion-checkbox></ion-item></ion-col><ion-col><ion-item [hidden]="!statFall"><ion-label floating>Capital a asegurar</ion-label><ion-input type="number" formControlName="fallecimientoCapital"></ion-input></ion-item></ion-col>
+			
 		</ion-row>
 		<ion-row>
-			<ion-item>
-				<ion-col><ion-label>Incapacidad Permanente Absoluta</ion-label><ion-checkbox formControlName="incapacidadPA"></ion-checkbox></ion-col><ion-col><ion-label floating>Capital a asegurar</ion-label><ion-input type="number" formControlName="incapacidadPACapital"></ion-input></ion-col>
-			</ion-item>
+			
+				<ion-col><ion-item><ion-label>Incapacidad Permanente Absoluta</ion-label><ion-checkbox formControlName="incapacidadPA" (click)="statIpa = !statIpa"></ion-checkbox></ion-item></ion-col><ion-col><ion-item [hidden]="!statIpa"><ion-label floating>Capital a asegurar</ion-label><ion-input type="number" formControlName="incapacidadPACapital"></ion-input></ion-item></ion-col>
+			
 		</ion-row>
 		<ion-row>
-			<ion-col><ion-label>Fecha Nacimiento</ion-label><ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month" formControlName="fechaNac"></ion-datetime></ion-col><ion-col><ion-label>Forma de Pago</ion-label><ion-select formControlName="pago"><ion-option value="mes">Mensual</ion-option><ion-option value="anyo">Anual</ion-option></ion-select></ion-col>
+			<ion-col><ion-label>Fecha Nacimiento</ion-label><ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date" formControlName="fechaNac"></ion-datetime></ion-col><ion-col><ion-label>Forma de Pago</ion-label><ion-select formControlName="pago"><ion-option value="ME" selected="true">Mensual</ion-option><ion-option value="AN">Anual</ion-option></ion-select></ion-col>
 		</ion-row>
 		<ion-row>
 			<ion-col><button ion-button (click)="goBack()" icon-only><ion-icon name='arrow-back'></ion-icon></button></ion-col><ion-col><button ion-button type="submit" icon-right>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button></ion-col>
