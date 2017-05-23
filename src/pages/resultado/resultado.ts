@@ -17,12 +17,27 @@ import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 export class ResultadoPage {
 
   resultado: any;
+  importeAnual: number;
+  primerRecibo: number;
+  primaComercial: number;
+  recargoFraccionamiento: number;
+  totalImpuestos: number;
+  fall: boolean;
+  ipa: boolean;
+
   menuInicioPage = MenuInicioPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
      
      this.resultado = this.navParams.get('resultado');
 
+     this.importeAnual = 300.00;
+     this.primerRecibo = 25.00;
+     this.primaComercial = 250.00;
+     this.recargoFraccionamiento = 1.00;
+     this.totalImpuestos = 24.00;
+     this.fall = this.navParams.get('fallecimiento');
+     this.ipa = this.navParams.get('incapacidad');  
   }
   goRoot() {
     this.navCtrl.setRoot(this.menuInicioPage);

@@ -78,9 +78,7 @@ export class TarificarPage {
 
    else{
     let temp =this.form.value.fechaNac.slice(0, -1) + "+0000";
-    alert(temp);
-    alert(this.efecto);
-  
+      
    this.servicioDatos.getTemplate()
    .subscribe(data => {
         data.asegurado.fechaNacimiento = temp;
@@ -99,10 +97,10 @@ export class TarificarPage {
 
       this.servicioDatos.getTarificacion(this.tarif)
       .subscribe(data => {
-
-        
          this.navCtrl.push(this.resultadoPage, {
-                     resultado: data
+                     resultado: data,
+                     fallecimiento: this.form.value.fallecimiento,
+                     incapacidad: this.form.value.incapacidadPA
                 }).then(() => loader.dismiss());
               })
     );
