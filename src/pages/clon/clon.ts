@@ -20,6 +20,11 @@ import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 export class ClonPage {
 
 	contenido: string;
+  tipo: string;
+  vital: boolean;
+  vida: boolean;
+  ul:boolean;
+  pensiones: boolean;
 	
 	tarificarPage = TarificarPage;
   menuInicioPage = MenuInicioPage;
@@ -27,16 +32,16 @@ export class ClonPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
 	  
 	
-	let tipo = this.navParams.get('tipoProducto');
+	this.tipo = this.navParams.get('tipoProducto');
 	
 	  
-	if(tipo === 'vital'){
+	if(this.tipo === 'vital'){
 		this.contenido = 'Bienvenido a Aviva Vital';
-	} else if(tipo === 'vidaentera'){	
+	} else if(this.tipo === 'vidaentera'){	
 		this.contenido = 'Bienvenido a Aviva Vida Entera';
-	} else if(tipo === 'unitlinked'){	
+	} else if(this.tipo === 'unitlinked'){	
 		this.contenido = 'Bienvenido a Unit Linked';
-	} else if(tipo === 'pensiones'){	
+	} else if(this.tipo === 'pensiones'){	
 		this.contenido = 'Bienvenido a tu Plan de Pensiones';
 	}
 

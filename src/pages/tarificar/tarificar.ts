@@ -28,18 +28,31 @@ export class TarificarPage {
   period: string;
   statFall: boolean = false;
   statIpa: boolean = false;
+  tipo: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService, public loadingController:LoadingController, public formBuilder: FormBuilder) {
 	  
-	this.contenido = this.navParams.get('tipoProducto');
+	
+  this.tipo = this.navParams.get('tipoProducto');
+	
+	  
+	if(this.tipo === 'vital'){
+		this.contenido = 'Tarificación de Aviva Vital';
+	} else if(this.tipo === 'vidaentera'){	
+		this.contenido = 'Tarificación de Aviva Vida Entera';
+	} else if(this.tipo === 'unitlinked'){	
+		this.contenido = 'Tarificación de Unit Linked';
+	} else if(this.tipo === 'pensiones'){	
+		this.contenido = 'Tarificación de tu Plan de Pensiones';
+	}
+
   this.date = new Date().toISOString();
   this.efecto = this.date.slice(0, -1) + "+0000";
   //this.date = base.getFullYear() + "-" +base.getMonth()+ "-" +base.getDay();
   this.form = this.formBuilder.group({
       'fallecimiento': false,
-      'fallecimientoCapital': 0,
       'incapacidadPA': false,
-      'incapacidadPACapital': 0,
+      'Capital': 3000,
       'fechaNac': [this.date,Validators.required],
       'pago': ['ME',Validators.required]
   });
@@ -66,9 +79,9 @@ export class TarificarPage {
      alert("Seleccione al menos una cobertura.");
    }
 
-   else if ((this.form.value.fallecimiento == true && this.form.value.fallecimientoCapital <= 0)||(this.form.value.incapacidadPA == true && this.form.value.incapacidadPACapital <=0)){
+   else if ((this.form.value.fallecimiento == true || this.form.value.incapacidadPA == true) && (this.form.value.Capital <3000 || this.form.value.Capital == null)){
 
-    alert("Introduzca la cantidad a asegurar por cada cobertura seleccionada.");
+    alert("Introduzca el capital a asegurar.");
    }
    else if (this.form.value.fechaNac > this.date){
 
@@ -84,8 +97,8 @@ export class TarificarPage {
         data.asegurado.fechaNacimiento = temp;
         data.fechaEfecto = this.efecto;
         data.periodicidadPago = this.form.value.pago;
-				data.coberturas.item[0].capitalAsegurado = this.form.value.fallecimientoCapital;
-				data.coberturas.item[1].capitalAsegurado = this.form.value.incapacidadPACapital;
+				data.coberturas.item[0].capitalAsegurado = this.form.value.Capital;
+				data.coberturas.item[1].capitalAsegurado = this.form.value.Capital;
          		this.tarif = JSON.stringify(data);
 			});
             
@@ -102,7 +115,12 @@ export class TarificarPage {
                      fallecimiento: this.form.value.fallecimiento,
                      incapacidad: this.form.value.incapacidadPA
                 }).then(() => loader.dismiss());
-              })
+              },
+              err => {
+                loader.dismiss(),
+                alert("Error al rarificar. Por favor vuelva a intentarlo")
+              }
+              )
     );
       
 

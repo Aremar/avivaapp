@@ -13,6 +13,12 @@
 
 
 <ion-content padding>
-{{contenido}}
-<button ion-button full (click)="goTarificar()" class="botonTarificar">Tarificar</button>
+  <h1 text-center>{{contenido}}</h1>
+<div [hidden]="tipo!='vital'"><p text-center>{{'VITAL1' | translate}}</p><p text-center>{{'VITAL2' | translate}}</p><p text-center>{{'VITAL3' | translate}}</p></div>
+<div [hidden]="tipo!='vidaentera'">{{'VIDAENTERA' | translate}}</div>
+<div [hidden]="tipo!='unitlinked'">{{'UNITLINKED' | translate}}</div>
+<div [hidden]="tipo!='pensiones'">{{'PENSIONES' | translate}}</div>
 </ion-content>
+<ion-footer>
+<button ion-button full (click)="goTarificar()" class="botonTarificar">Tarificar</button>
+</ion-footer>
