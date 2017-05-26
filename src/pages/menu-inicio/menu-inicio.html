@@ -14,20 +14,21 @@
 
 	<ion-grid class="tablaMenu">
 
-			<ion-row>
-				<ion-col><button ion-button round class="standardButton"[navPush]="productosPage">{{ 'PRODUCTS' | translate }}</button></ion-col><ion-col></ion-col>
+			<ion-row align-items-center class="filasMenu">
+				<ion-col><button ion-button round class="standardButtonDer"[navPush]="productosPage" icon-right>{{ 'PRODUCTS' | translate }}<ion-icon name='album'></ion-icon></button></ion-col><ion-col></ion-col>
 			</ion-row>
-			<ion-row>
-				<ion-col></ion-col><ion-col><button ion-button round class="standardButton" [navPush]="corporacionPage">{{ 'CORP' | translate }}</button></ion-col>
+			<ion-row align-items-center class="filasMenu">
+				<ion-col></ion-col><ion-col><button ion-button round class="standardButtonIz" [navPush]="corporacionPage" icon-left><ion-icon name='briefcase'></ion-icon>{{ 'CORP' | translate }}</button></ion-col>
 			</ion-row>
-			<ion-row>
-				<ion-col><button ion-button round class="standardButton" [navPush]="avivaYTuPage">{{ 'AAY' | translate }}</button></ion-col><ion-col></ion-col>
+			<ion-row align-items-center class="filasMenu">
+				<ion-col><button ion-button round class="standardButtonDer" [navPush]="avivaYTuPage" icon-right>{{ 'AAY' | translate }}<ion-icon name='body'></ion-icon></button></ion-col><ion-col></ion-col>
 			</ion-row>
-			<ion-row>
-				<ion-col></ion-col><ion-col><button ion-button round class="standardButton" [navPush]="cuidamosDeTiPage">{{ 'CARE' | translate }}</button></ion-col>
+			<ion-row align-items-center class="filasMenu">
+				<ion-col></ion-col><ion-col><button ion-button round class="standardButtonIz" [navPush]="cuidamosDeTiPage" icon-left><ion-icon name='heart'></ion-icon>{{ 'CARE' | translate }}</button></ion-col>
 			</ion-row>
 	</ion-grid>
 
 	<div class="socialMedia">
+		<img src="assets/images/aviva_twitter.png"/>
 	</div>
 </ion-content>

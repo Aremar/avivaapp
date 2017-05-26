@@ -15,7 +15,7 @@ import { TarificarPage } from '../pages/tarificar/tarificar';
 import { ResultadoPage } from '../pages/resultado/resultado';
 import { ServicioDatos } from '../providers/servicio-datos';
 import { BaseDatos } from '../providers/base-datos';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';

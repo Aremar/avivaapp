@@ -84,7 +84,15 @@
 .socialMedia {
 
 	height: 20%;
-	
+}
+.socialMedia img{
+
+	height: 100%;
+	width: 100;
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+	align-content: center;
 }
 
 .idiomas {
@@ -106,10 +114,10 @@
 	width: 10%;
 	background-color: gray;
 }
-
 .standardButton {
 	
 	background-color: #FFD900;
+	font-weight: bold;
 	animation-name: latirBoton;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -121,6 +129,40 @@
 	background-color: #FFBF00 !important;
 	animation-play-state: paused;
 }
+.standardButtonDer {
+	
+	background-color: #FFD900;
+	font-weight: bold;
+	border-right: 50px solid #5882FA;
+	animation-name: latirBoton;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+
+}
+
+.standardButtonDer:hover {
+	
+	background-color: #FFBF00 !important;
+	animation-play-state: paused;
+}
+
+.standardButtonIz {
+	
+	background-color: #FFD900;
+	font-weight: bold;
+	border-left: 50px solid #5882FA;
+	animation-name: latirBoton;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+
+}
+
+.standardButtonIZ:hover {
+	
+	background-color: #FFBF00 !important;
+	animation-play-state: paused;
+}
+
 
 .botonInicio {
 	

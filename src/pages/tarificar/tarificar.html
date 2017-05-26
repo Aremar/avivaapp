@@ -14,7 +14,7 @@
 <ion-content padding>
 	
 <h1 text-center>{{contenido}}</h1>
-<form (submit)="goTar()" [formGroup]="form">
+<form id="form-Tarif" (submit)="goTar()" [formGroup]="form">
 	<ion-grid>
 		<ion-row>
 			<ion-col><ion-item><ion-label floating>Nombre</ion-label><ion-input type="text"></ion-input></ion-item></ion-col><ion-col><ion-item><ion-label floating>Apellido</ion-label><ion-input type="text"></ion-input></ion-item></ion-col>
@@ -49,9 +49,9 @@
 		<ion-row>
 			<ion-col><ion-label>Forma de Pago</ion-label><ion-list radio-group formControlName="pago"><ion-item><ion-radio value="ME" checked></ion-radio><ion-label>Mensual</ion-label></ion-item><ion-item><ion-radio value="AN"></ion-radio><ion-label>Anual</ion-label></ion-item></ion-list></ion-col>
 		</ion-row>
-		<ion-row>
-			<ion-col><button ion-button (click)="goBack()" icon-only><ion-icon name='arrow-back'></ion-icon></button></ion-col><ion-col><button ion-button type="submit" icon-right>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button></ion-col>
-		</ion-row>
 	</ion-grid>
 </form>
 </ion-content>
+<ion-footer>
+	<button ion-button (click)="goBack()" icon-only><ion-icon name='arrow-back'></ion-icon></button><button ion-button type="submit" form="form-Tarif" icon-right>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button>
+</ion-footer>
