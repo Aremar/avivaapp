@@ -31,11 +31,10 @@ export class ResultadoPage {
      
      this.resultado = this.navParams.get('resultado');
 
-     this.importeAnual = 300.00;
-     this.primerRecibo = 25.00;
-     this.primaComercial = 250.00;
-     this.recargoFraccionamiento = 1.00;
-     this.totalImpuestos = 24.00;
+     this.importeAnual = this.resultado.datos.conceptosEconomicosTotalizados.primaComercial;
+     this.primerRecibo = this.resultado.datos.importePrimerRecibo;
+     this.primaComercial = this.resultado.datos.conceptosEconomicosTotalizados.primaComercial;
+     this.totalImpuestos = this.resultado.datos.conceptosEconomicosTotalizados.totalImpuestos;
      this.fall = this.navParams.get('fallecimiento');
      this.ipa = this.navParams.get('incapacidad');  
   }

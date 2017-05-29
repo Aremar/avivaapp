@@ -14,9 +14,9 @@
 
 
 <ion-content padding>
-    <ion-card color="azulclaro">
+    <ion-card color="azulclaro" class="resultado">
         <ion-card-header>
-          <h2>Su tarificación:</h2>
+          <h1>Su tarificación:</h1>
         </ion-card-header>
         <ion-card-content>
           <ion-grid>
@@ -24,13 +24,14 @@
               <ion-col>Cobertudas <ion-badge item-right [hidden]='!fall'>Fallecimiento</ion-badge><ion-badge item-right [hidden]='!ipa'>Incapacidad</ion-badge></ion-col>
             </ion-row>
             <ion-row align-items-center>
-              <ion-col><h2>Importe Anual:</h2></ion-col><ion-col><h1>{{importeAnual}}€</h1></ion-col>
+              <ion-col><h2>Importe Anual:</h2></ion-col><ion-col><h1>{{importeAnual | number:'1.2-2'}}€</h1></ion-col>
             </ion-row>
             <ion-row align-items-center>
-              <ion-col><h2>Su primer recibo será de:</h2></ion-col><ion-col><h2>{{primerRecibo}}€</h2></ion-col>
+              <ion-col><h2>Su primer recibo será de:</h2></ion-col><ion-col><h2>{{primerRecibo | number:'1.2-2'}}€</h2></ion-col>
             </ion-row>
             <ion-row><ion-col>* El recibo mínimo es de 30€</ion-col></ion-row>
           </ion-grid>
         </ion-card-content>
     </ion-card>
+
 </ion-content>

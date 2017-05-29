@@ -84,15 +84,17 @@
 .socialMedia {
 
 	height: 20%;
+
 }
-.socialMedia img{
+.socialMedia { img{
 
 	height: 100%;
 	width: 100;
 	padding: 0px;
 	border: 0px;
 	margin: 0px;
-	align-content: center;
+	align-items: center;
+	}
 }
 
 .idiomas {
@@ -131,9 +133,13 @@
 }
 .standardButtonDer {
 	
-	background-color: #FFD900;
+	//background-color: #FFD900;
 	font-weight: bold;
-	border-right: 50px solid #5882FA;
+	//border-right: 50px solid #5882FA;
+	background: linear-gradient(to left, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
+	background: -moz-linear-gradient(left, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
+	background: -webkit-linear-gradient(left, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
+	background: -o-linear-gradient(left, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
 	animation-name: latirBoton;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -148,9 +154,13 @@
 
 .standardButtonIz {
 	
-	background-color: #FFD900;
+	//background-color: #FFD900;
 	font-weight: bold;
-	border-left: 50px solid #5882FA;
+	//border-left: 50px solid #5882FA;
+	background: linear-gradient(to right, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
+	background: -moz-linear-gradient(right, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
+	background: -webkit-linear-gradient(right, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
+	background: -o-linear-gradient(right, #5882FA, #5882FA 30%, #FFD900 30%, #FFD900);
 	animation-name: latirBoton;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -198,4 +208,29 @@
 
 	font-size: 4rem;
 
+}
+
+.menuInicio{
+	overflow: hidden;
+	background-image: url('../assets/images/aviva_fondo.png');
+	background-size: 100% 100%
+}
+.resultado{
+	background-image: url('../assets/images/calculadora.png');
+	background-size: 100% 100%;
+	font-weight: bold;
+}
+
+.resultado { ion-row{
+	background-color: rgba(255,255,255,0.5);
+	font-weight: bold;
+} h2 {
+	font-weight: bold;
+	font-size: 1.3rem;
+	color: darkblue;
+}
+ h2 {
+	font-weight: bold;
+	color: darkblue;
+}
 }

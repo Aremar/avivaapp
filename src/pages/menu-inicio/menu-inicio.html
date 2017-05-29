@@ -8,23 +8,24 @@
 
 </ion-header>
 
-<ion-content padding overflow-scroll="false">
+<ion-content padding overflow-scroll="false" class="menuInicio">
 	<div class="rellenoSuperior">
+		<img src="">
 	</div>
 
 	<ion-grid class="tablaMenu">
 
 			<ion-row align-items-center class="filasMenu">
-				<ion-col><button ion-button round class="standardButtonDer"[navPush]="productosPage" icon-right>{{ 'PRODUCTS' | translate }}<ion-icon name='album'></ion-icon></button></ion-col><ion-col></ion-col>
+				<ion-col col-8><button ion-button round class="standardButtonDer"[navPush]="productosPage" block><ion-grid class="noPadding"><ion-row align-items-center><ion-col col-10>{{ 'PRODUCTS' | translate }}</ion-col><ion-col><ion-icon name='basket' class="menuIcon"></ion-icon></ion-col></ion-row></ion-grid></button></ion-col><ion-col></ion-col>
 			</ion-row>
 			<ion-row align-items-center class="filasMenu">
-				<ion-col></ion-col><ion-col><button ion-button round class="standardButtonIz" [navPush]="corporacionPage" icon-left><ion-icon name='briefcase'></ion-icon>{{ 'CORP' | translate }}</button></ion-col>
+				<ion-col></ion-col><ion-col col-8><button ion-button round class="standardButtonIz" [navPush]="corporacionPage" block><ion-grid class="noPadding"><ion-row align-items-center><ion-col><ion-icon name='briefcase' class="menuIcon"></ion-icon></ion-col><ion-col col-10>{{ 'CORP' | translate }}</ion-col></ion-row></ion-grid></button></ion-col>
 			</ion-row>
 			<ion-row align-items-center class="filasMenu">
-				<ion-col><button ion-button round class="standardButtonDer" [navPush]="avivaYTuPage" icon-right>{{ 'AAY' | translate }}<ion-icon name='body'></ion-icon></button></ion-col><ion-col></ion-col>
+				<ion-col col-8><button ion-button round class="standardButtonDer" [navPush]="avivaYTuPage" block><ion-grid class="noPadding"><ion-row align-items-center><ion-col col-10>{{ 'AAY' | translate }}</ion-col><ion-col><ion-icon name='body' class="menuIcon"></ion-icon></ion-col></ion-row></ion-grid></button></ion-col><ion-col></ion-col>
 			</ion-row>
 			<ion-row align-items-center class="filasMenu">
-				<ion-col></ion-col><ion-col><button ion-button round class="standardButtonIz" [navPush]="cuidamosDeTiPage" icon-left><ion-icon name='heart'></ion-icon>{{ 'CARE' | translate }}</button></ion-col>
+				<ion-col></ion-col><ion-col col-8><button ion-button round class="standardButtonIz" [navPush]="cuidamosDeTiPage" block><ion-grid class="noPadding"><ion-row align-items-center><ion-col><ion-icon name='heart' class="menuIcon"></ion-icon></ion-col><ion-col col-10>{{ 'CARE' | translate }}</ion-col></ion-row></ion-grid></button></ion-col>
 			</ion-row>
 	</ion-grid>
 

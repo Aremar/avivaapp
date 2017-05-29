@@ -53,5 +53,9 @@
 </form>
 </ion-content>
 <ion-footer>
-	<button ion-button (click)="goBack()" icon-only><ion-icon name='arrow-back'></ion-icon></button><button ion-button type="submit" form="form-Tarif" icon-right>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button>
+	<ion-grid>
+		<ion-row>
+			<ion-col><button ion-button (click)="goBack()" icon-only block><ion-icon name='arrow-back'></ion-icon></button></ion-col><ion-col col-10><button ion-button type="submit" form="form-Tarif" icon-right block>Ver resultado<ion-icon name='arrow-forward'></ion-icon></button></ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-footer>

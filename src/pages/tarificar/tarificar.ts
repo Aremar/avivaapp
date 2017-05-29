@@ -110,12 +110,18 @@ export class TarificarPage {
 
       this.servicioDatos.getTarificacion(this.tarif)
       .subscribe(data => {
+        if(data.codigoError!=null){
+
+          loader.dismiss(),
+          alert(data.descripcionError);
+
+        } else {
          this.navCtrl.push(this.resultadoPage, {
                      resultado: data,
                      fallecimiento: this.form.value.fallecimiento,
                      incapacidad: this.form.value.incapacidadPA
                 }).then(() => loader.dismiss());
-              },
+              }},
               err => {
                 loader.dismiss(),
                 alert("Error al rarificar. Por favor vuelva a intentarlo")
