@@ -19,11 +19,10 @@ export class ProductosPage {
 	
    clonPage = ClonPage;
 
-   temp: string;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
-    //this.temp = this.servicioDatos.getAuthorize();
-    this.temp = this.servicioDatos.getToken();
+ 
   }
 
   ionViewDidLoad() {

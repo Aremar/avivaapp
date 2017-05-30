@@ -25,6 +25,7 @@ export class ClonPage {
   vida: boolean;
   ul:boolean;
   pensiones: boolean;
+  imagen: string;
 	
 	tarificarPage = TarificarPage;
   menuInicioPage = MenuInicioPage;
@@ -37,12 +38,16 @@ export class ClonPage {
 	  
 	if(this.tipo === 'vital'){
 		this.contenido = 'Bienvenido a Aviva Vital';
+    this.imagen = "assets/images/productos-seguros-salud.jpg";
 	} else if(this.tipo === 'vidaentera'){	
 		this.contenido = 'Bienvenido a Aviva Vida Entera';
+    this.imagen="assets/images/productos-seguros-vida.jpg";
 	} else if(this.tipo === 'unitlinked'){	
-		this.contenido = 'Bienvenido a Unit Linked';
+		this.contenido = 'Bienvenido a Fondos de Inversión';
+    this.imagen="assets/images/productos-fondos-inversion.jpg";
 	} else if(this.tipo === 'pensiones'){	
 		this.contenido = 'Bienvenido a tu Plan de Pensiones';
+    this.imagen="assets/images/productos-planes-pensiones.jpg";
 	}
 
 	  

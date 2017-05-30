@@ -14,14 +14,14 @@
 
 
 <ion-content padding>
-    <ion-card color="azulclaro" class="resultado">
+    <ion-card class="resultado">
         <ion-card-header>
           <h1>Su tarificación:</h1>
         </ion-card-header>
         <ion-card-content>
           <ion-grid>
             <ion-row>
-              <ion-col>Cobertudas <ion-badge item-right [hidden]='!fall'>Fallecimiento</ion-badge><ion-badge item-right [hidden]='!ipa'>Incapacidad</ion-badge></ion-col>
+              <ion-col>Coberturas: <ion-badge class="badgeCobertura" item-right [hidden]='!fall'>Fallecimiento</ion-badge><ion-badge class="badgeCobertura" item-right [hidden]='!ipa'>Incapacidad</ion-badge></ion-col>
             </ion-row>
             <ion-row align-items-center>
               <ion-col><h2>Importe Anual:</h2></ion-col><ion-col><h1>{{importeAnual | number:'1.2-2'}}€</h1></ion-col>

@@ -124,7 +124,7 @@ export class TarificarPage {
               }},
               err => {
                 loader.dismiss(),
-                alert("Error al rarificar. Por favor vuelva a intentarlo")
+                alert("Error al tarificar. Por favor vuelva a intentarlo")
               }
               )
     );

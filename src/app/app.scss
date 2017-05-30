@@ -69,9 +69,60 @@
 	
 }
 
+.menuInicio{
+	overflow: hidden;
+	background-image: url('../assets/images/aviva_fondo.png');
+	background-size: cover;
+	background-position: center center;
+}
+
 .tablaMenu {
 	
 	height: 65%;
+	
+}
+
+.menuProductos{
+
+	overflow: hidden;
+	background-color: whitesmoke;
+	//background-image: url('../assets/images/cesped.png');
+	background-size: cover;
+	background-position: center center;
+
+}
+
+.tablaProductos{
+	height: 80%;
+	width: 100%;
+	padding: 0px;
+	ion-item{
+				height: 25%;
+				width: 100%;
+				margin: 5px;
+				border-radius: 10px;
+				padding: 0px;
+				border: 0px;
+				ion-grid{ 
+					padding: 0px;
+					border: 0px;
+					margin: 0px;
+					ion-row{ 
+						padding: 0px;
+						border: 0px;
+						margin: 0px;
+						width: 100%;
+						background-color:  #FFBF00;
+						border-top-right-radius: 10px;
+						border-bottom-right-radius: 10px;				
+						ion-col{
+							width: 100%;
+							font-size: 2rem;
+							font-weight: bold;
+							color: white;
+
+				}}}
+	}
 	
 }
 
@@ -82,18 +133,16 @@
 }
 
 .socialMedia {
-
 	height: 20%;
-
-}
-.socialMedia { img{
-
-	height: 100%;
-	width: 100;
-	padding: 0px;
-	border: 0px;
-	margin: 0px;
-	align-items: center;
+	width: 100%;
+	position: center center;
+	img{
+		height: 100%;
+		width: 100;
+		padding: 0px;
+		border: 0px;
+		margin: 0px;
+		position: center center;
 	}
 }
 
@@ -206,22 +255,19 @@
 
 .badgeGrande{
 
-	font-size: 4rem;
+	font-size: 3.5rem;
+	background-color: #FFBF00 !important;
 
 }
-
-.menuInicio{
-	overflow: hidden;
-	background-image: url('../assets/images/aviva_fondo.png');
-	background-size: 100% 100%
+.badgeCobertura{
+	background-color: #FFBF00 !important;
 }
+
 .resultado{
 	background-image: url('../assets/images/calculadora.png');
 	background-size: 100% 100%;
 	font-weight: bold;
-}
-
-.resultado { ion-row{
+ ion-row{
 	background-color: rgba(255,255,255,0.5);
 	font-weight: bold;
 } h2 {
@@ -233,4 +279,37 @@
 	font-weight: bold;
 	color: darkblue;
 }
+}
+
+#vital{
+	background-image: url('../assets/images/productos-seguros-salud.png');
+	background-size: cover;
+	background-position: center center;
+}
+
+#vidaentera{
+	background-image: url('../assets/images/productos-seguros-vida.png');
+	background-size: cover;
+	background-position: center center;
+}
+
+#unitlinked{
+	background-image: url('../assets/images/productos-fondos-inversion.png');
+	background-size: cover;
+	background-position: right bottom;
+}
+
+#pensiones{
+	background-image: url('../assets/images/productos-planes-pensiones.png');
+	background-size: cover;
+	background-position: center top;
+}
+
+.imagenProducto{
+	width: 100%;
+	text-align: center;
+	img{
+		border-radius: 10px;
+		position: center center;
+	}
 }

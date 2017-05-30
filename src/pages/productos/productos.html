@@ -14,22 +14,17 @@
 </ion-header>
 
 
-<ion-content padding>
-	<div>
-	<h1>{{temp}}</h1>
-	<ion-grid>
-			<ion-row>
-				<ion-col><button ion-button round class="standardButton"(click)="producto('vital')">Aviva Vital</button></ion-col><ion-col></ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col></ion-col><ion-col><button ion-button round class="standardButton" (click)="producto('vidaentera')">Aviva Vida Entera</button></ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col><button ion-button round class="standardButton" (click)="producto('unitlinked')">Unit Linked</button></ion-col><ion-col></ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col></ion-col><ion-col><button ion-button round class="standardButton" (click)="producto('pensiones')">Planes de pensiones</button></ion-col>
-			</ion-row>
-	</ion-grid>
-	</div>
+<ion-content padding class="menuProductos">
+
+	<ion-list class="tablaProductos" no-lines>
+			
+				<ion-item id="vital" (click)="producto('vital')"><ion-grid><ion-row><ion-col col-10>Aviva Vital</ion-col><ion-col><ion-icon name="arrow-dropright"></ion-icon></ion-col></ion-row></ion-grid></ion-item>
+				<ion-item id="vidaentera"(click)="producto('vidaentera')"><ion-grid><ion-row><ion-col col-10>Aviva Vida Entera</ion-col><ion-col><ion-icon name="arrow-dropright"></ion-icon></ion-col></ion-row></ion-grid></ion-item>
+				<ion-item id="unitlinked" (click)="producto('unitlinked')"><ion-grid><ion-row><ion-col col-10>Unit Linked</ion-col><ion-col><ion-icon name="arrow-dropright"></ion-icon></ion-col></ion-row></ion-grid></ion-item>
+				<!--
+					<button ion-button round class="standardButton" (click)="producto('pensiones')"></button>
+				-->
+				<ion-item id="pensiones" (click)="producto('pensiones')"><ion-grid><ion-row><ion-col col-10>Planes de pensiones</ion-col><ion-col><ion-icon name="arrow-dropright"></ion-icon></ion-col></ion-row></ion-grid></ion-item>
+			
+	</ion-list>
 </ion-content>
