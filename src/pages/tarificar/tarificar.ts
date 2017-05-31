@@ -119,7 +119,9 @@ export class TarificarPage {
          this.navCtrl.push(this.resultadoPage, {
                      resultado: data,
                      fallecimiento: this.form.value.fallecimiento,
-                     incapacidad: this.form.value.incapacidadPA
+                     incapacidad: this.form.value.incapacidadPA,
+                     producto: this.tipo,
+                     fechatar: this.date
                 }).then(() => loader.dismiss());
               }},
               err => {

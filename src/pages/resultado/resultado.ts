@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { ServicioDatos } from '../../providers/servicio-datos';
+import { BaseDatos } from '../../providers/base-datos';
 import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 
 /*
@@ -17,6 +18,9 @@ import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 export class ResultadoPage {
 
   resultado: any;
+  anteriores: any;
+  producto: string;
+  fecha: string;
   importeAnual: number;
   primerRecibo: number;
   primaComercial: number;
@@ -27,16 +31,18 @@ export class ResultadoPage {
 
   menuInicioPage = MenuInicioPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService, public db: BaseDatos) {
      
      this.resultado = this.navParams.get('resultado');
-
+     this.producto = this.navParams.get('producto');
+     this.fecha = this.navParams.get('fechatar');
      this.importeAnual = this.resultado.datos.conceptosEconomicosTotalizados.primaComercial;
      this.primerRecibo = this.resultado.datos.importePrimerRecibo;
      this.primaComercial = this.resultado.datos.conceptosEconomicosTotalizados.primaComercial;
      this.totalImpuestos = this.resultado.datos.conceptosEconomicosTotalizados.totalImpuestos;
      this.fall = this.navParams.get('fallecimiento');
-     this.ipa = this.navParams.get('incapacidad');  
+     this.ipa = this.navParams.get('incapacidad');
+
   }
   goRoot() {
     this.navCtrl.setRoot(this.menuInicioPage);
@@ -46,5 +52,37 @@ export class ResultadoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultadoPage');
   }
+  ionViewDidEnter(){
+    this.db.getLista().then((res)=>{
+    this.anteriores = [];
+    for(var i = 0; i < res.rows.length; i++){ //fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad
+        this.anteriores.push({ 
+          fecha: res.rows.item(i).fecha, 
+          importe: res.rows.item(i).importe_anual, 
+          cuota: res.rows.item(i).cuota_mensual,
+          impuestos: res.rows.item(i).total_impuestos,
+          fall: res.rows.item(i).fallecimiento,
+          ipa: res.rows.item(i).incapacidad
+        });
+    }
+
+    },(err)=>{ /* alert('error al obtener datos de la bd'+err) */ })
+   }
+   ionViewWillLeave(){
+    //producto, fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad, json
+      let tarificacion = {
+          producto: this.producto,
+          fecha: this.fecha,
+          importe_anual: this.importeAnual,
+          cuota_mensual: this.primerRecibo,
+          total_impuestos: this.totalImpuestos,
+          fallecimiento: this.fall,
+          incapacidad: this.ipa,
+          json: this.resultado.toString()
+      }
+
+      this.db.addTarificacion(tarificacion);
+
+   }
 
 }

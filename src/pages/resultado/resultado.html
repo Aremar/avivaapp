@@ -21,17 +21,30 @@
         <ion-card-content>
           <ion-grid>
             <ion-row>
-              <ion-col>Coberturas: <ion-badge class="badgeCobertura" item-right [hidden]='!fall'>Fallecimiento</ion-badge><ion-badge class="badgeCobertura" item-right [hidden]='!ipa'>Incapacidad</ion-badge></ion-col>
+              <ion-col><h3>Coberturas: </h3><ion-badge class="badgeCobertura" item-right [hidden]='!fall'>Fallecimiento</ion-badge><ion-badge class="badgeCobertura" item-right [hidden]='!ipa'>Incapacidad</ion-badge></ion-col>
             </ion-row>
             <ion-row align-items-center>
-              <ion-col><h2>Importe Anual:</h2></ion-col><ion-col><h1>{{importeAnual | number:'1.2-2'}}€</h1></ion-col>
+              <ion-col><h3>Importe Anual:</h3></ion-col><ion-col><h1>{{importeAnual | number:'1.2-2'}} €</h1></ion-col>
             </ion-row>
             <ion-row align-items-center>
-              <ion-col><h2>Su primer recibo será de:</h2></ion-col><ion-col><h2>{{primerRecibo | number:'1.2-2'}}€</h2></ion-col>
+              <ion-col><h3>Su primer recibo será de:</h3></ion-col><ion-col><h2>{{primerRecibo | number:'1.2-2'}} €</h2></ion-col>
             </ion-row>
-            <ion-row><ion-col>* El recibo mínimo es de 30€</ion-col></ion-row>
+            <ion-row><ion-col><h3>* El recibo mínimo es de 30€</h3></ion-col></ion-row>
           </ion-grid>
         </ion-card-content>
     </ion-card>
-
+    <div>
+    <ion-card *ngFor='let anterior of anteriores' class="anteriorCard">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>{{anterior.fecha}}</ion-col><ion-col>Coberturas: <ion-badge class="badgeCobertura" item-right [hidden]='anterior.fallecimiento == 0'>Fallecimiento</ion-badge><ion-badge class="badgeCobertura" item-right [hidden]='anterior.incapacidad == 0'>Incapacidad</ion-badge></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Importe Anual:{{anterior.importe}}</ion-col><ion-col>Primer Recibo: {{anterior.cuota}}</ion-col><ion-col>Impuestos: {{anterior.impuestos}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    </div>
 </ion-content>

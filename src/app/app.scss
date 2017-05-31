@@ -261,23 +261,39 @@
 }
 .badgeCobertura{
 	background-color: #FFBF00 !important;
+	box-shadow: 3px 3px 3px #aaaaaa;
 }
 
 .resultado{
 	background-image: url('../assets/images/calculadora.png');
 	background-size: 100% 100%;
 	font-weight: bold;
- ion-row{
+	ion-card-header{ 
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		background-color: rgba(255,191,00,0.9);
+		h1{
+		font-weight: bold;
+		color: #f8f8f8 !important;
+	}}
+	
+ ion-grid{
 	background-color: rgba(255,255,255,0.5);
 	font-weight: bold;
-} h2 {
-	font-weight: bold;
-	font-size: 1.3rem;
-	color: darkblue;
-}
- h2 {
-	font-weight: bold;
-	color: darkblue;
+	border-radius: 10px;
+		ion-row {ion-col {h3 {
+		font-weight: bold;
+		font-size: 1.3rem;
+		color: darkblue;
+					}h1, h2 {
+						font-weight: bold;
+						text-align: center;
+						border-radius: 10px;
+						background-color: #FFBF00 !important;
+						color: #f8f8f8;
+						box-shadow: 3px 3px 3px #aaaaaa;
+					}
+	}}
 }
 }
 

@@ -24,6 +24,8 @@ export class ServicioDatos {
 
   constructor(public http: Http) {
 		this.idioma = 'esES';
+		//http://146.162.243.178:8080
+		//http://10.118.21.98:8080
 		this.URL ='http://10.118.21.98:8080'; /* modificar para extraer o recuperar en el inicio de la aplicación - basado en dominio +/
 		/*Estos datos se deberan inicializar a null cuando se cree el login*/
 		this.client_id = 'afbda9276ea24ef2bc31e40ed9dfebeb';
@@ -105,7 +107,7 @@ export class ServicioDatos {
 		
 		let tarificadorURL = this.URL + '/tarificador/simulate/';
 		let headers = new Headers();
-		headers.append('Authorization', 'Bearer ' + 'ece1e37e-9f98-485f-b010-d4e6c7c2beea');
+		headers.append('Authorization', 'Bearer ' + '9d6a97ed-b968-4e07-8bd8-72582fb45b94');
 		headers.append('Content-Type', 'application/json');
 				
 		return this.http.post(tarificadorURL, cuerpo, {
