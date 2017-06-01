@@ -23,24 +23,30 @@ export class BaseDatos {
       })
       .then((db: SQLiteObject) => {
        this.db = db;
+       alert("la bd esta creada");
     })  
   }
   
   public createTableTarificaciones(){
 	  
-	  return this.db.executeSql("create table if not exists tarificaciones( id INTEGER PRIMARY KEY AUTOINCREMENT, producto TEXT, fecha TEXT, importe_anual REAL, cuota_mensual REAL, total_impuestos REAL, fallecimiento INTEGER, incapacidad INTEGER, json STRING)",{})
+	  return this.db.executeSql("CREATE TABLE IF NOT EXISTS tarificaciones( id INTEGER PRIMARY KEY AUTOINCREMENT, producto TEXT, fecha TEXT, importe_anual REAL, cuota_mensual REAL, total_impuestos REAL, fallecimiento INTEGER, incapacidad INTEGER, json TEXT)",{})
 	  
   }
   public addTarificacion(tarificacion){
 	  
 	let sql = "INSERT INTO tarificaciones (producto, fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad, json) values (?,?,?,?,?,?,?,?)";
-    return this.db.executeSql(sql,[tarificacion.product,tarificacion.date,tarificacion.cuota]);
+    return this.db.executeSql(sql,[tarificacion.producto,tarificacion.fecha,tarificacion.importe_anual,tarificacion.cuota_mensual,tarificacion.total_impuestos,tarificacion.fallecimiento,tarificacion.incapacidad,tarificacion.json]);
 	  
+  }
+  public addBase(){
+    let sql = "INSERT INTO tarificaciones (producto, fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad, json) values ('prueba','2016-05-01T00:00:00.000Z,120,20,5,1,1,'aquivajson')";
+    return this.db.executeSql(sql,{}); 
+  
   }
   
   public getLista(){
 	  
-	let sql = "SELECT fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad FROM tarificaciones ORDER BY fecha DESC LIMIT 3";
+	let sql = "SELECT * FROM tarificaciones";// ORDER BY fecha DESC LIMIT 3
 	return this.db.executeSql(sql,{});
 	  
   }

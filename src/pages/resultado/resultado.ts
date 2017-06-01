@@ -54,19 +54,19 @@ export class ResultadoPage {
   }
   ionViewDidEnter(){
     this.db.getLista().then((res)=>{
-    this.anteriores = [];
-    for(var i = 0; i < res.rows.length; i++){ //fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad
-        this.anteriores.push({ 
-          fecha: res.rows.item(i).fecha, 
-          importe: res.rows.item(i).importe_anual, 
-          cuota: res.rows.item(i).cuota_mensual,
-          impuestos: res.rows.item(i).total_impuestos,
-          fall: res.rows.item(i).fallecimiento,
-          ipa: res.rows.item(i).incapacidad
-        });
+      this.anteriores = [];
+      for(var i = 0; i < res.rows.length; i++){ //fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad
+          this.anteriores.push({ 
+            fecha: res.rows.item(i).fecha, 
+            importe: res.rows.item(i).importe_anual, 
+            cuota: res.rows.item(i).cuota_mensual,
+            impuestos: res.rows.item(i).total_impuestos,
+            fall: res.rows.item(i).fallecimiento,
+            ipa: res.rows.item(i).incapacidad
+          });
     }
 
-    },(err)=>{ /* alert('error al obtener datos de la bd'+err) */ })
+    },(err)=>{ alert('error al obtener datos de la bd'+err) })
    }
    ionViewWillLeave(){
     //producto, fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad, json
@@ -81,7 +81,9 @@ export class ResultadoPage {
           json: this.resultado.toString()
       }
 
-      this.db.addTarificacion(tarificacion);
+      this.db.addTarificacion(tarificacion).then(()=> {alert("Se ha introducido correctamente la tarificación en la base de datos")
+    },(err)=>{ alert('error al guardar datos de la bd'+err) }
+    );
 
    }
 

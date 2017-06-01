@@ -25,8 +25,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-	  this.baseDatos.abrirBD()
-       .then(() => this.baseDatos.createTableTarificaciones())
+	    this.baseDatos.abrirBD()
+        .then(() => {this.baseDatos.createTableTarificaciones().then(()=> {alert("he creado la tabla")},(err)=>alert("error al crear la tabla"))
+        }, (err)=>{ alert('error al crear la bd '+err) })
+        
     });
   }
 }

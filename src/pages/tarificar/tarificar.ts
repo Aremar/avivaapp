@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ServicioDatos } from '../../providers/servicio-datos';
+import { BaseDatos } from '../../providers/base-datos';
 import { ResultadoPage } from '../resultado/resultado';
 import { MenuInicioPage } from '../menu-inicio/menu-inicio';
 
@@ -30,12 +31,17 @@ export class TarificarPage {
   statIpa: boolean = false;
   tipo: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService, public loadingController:LoadingController, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public servicioDatos: ServicioDatos, public translateService: TranslateService, public loadingController:LoadingController, public formBuilder: FormBuilder, public bd: BaseDatos) {
 	  
 	
   this.tipo = this.navParams.get('tipoProducto');
 	
-	  
+	  this.bd.addBase().then(()=>{
+
+      alert("dato insertado correctamente");
+
+    }, (err) => {alert("error al introducir el dato base"+err)});
+
 	if(this.tipo === 'vital'){
 		this.contenido = 'Tarificación de Aviva Vital';
 	} else if(this.tipo === 'vidaentera'){	
