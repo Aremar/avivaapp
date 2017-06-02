@@ -36,12 +36,6 @@ export class TarificarPage {
 	
   this.tipo = this.navParams.get('tipoProducto');
 	
-	  this.bd.addBase().then(()=>{
-
-      alert("dato insertado correctamente");
-
-    }, (err) => {alert("error al introducir el dato base"+err)});
-
 	if(this.tipo === 'vital'){
 		this.contenido = 'Tarificación de Aviva Vital';
 	} else if(this.tipo === 'vidaentera'){	
@@ -126,8 +120,7 @@ export class TarificarPage {
                      resultado: data,
                      fallecimiento: this.form.value.fallecimiento,
                      incapacidad: this.form.value.incapacidadPA,
-                     producto: this.tipo,
-                     fechatar: this.date
+                     producto: this.tipo
                 }).then(() => loader.dismiss());
               }},
               err => {

@@ -107,7 +107,7 @@ export class ServicioDatos {
 		
 		let tarificadorURL = this.URL + '/tarificador/simulate/';
 		let headers = new Headers();
-		headers.append('Authorization', 'Bearer ' + '1690b772-e35a-4581-9369-1ca700b75bf6');
+		headers.append('Authorization', 'Bearer ' + '7767f658-043b-4485-a5f1-d537093ccf5c');
 		headers.append('Content-Type', 'application/json');
 				
 		return this.http.post(tarificadorURL, cuerpo, {

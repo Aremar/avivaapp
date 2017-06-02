@@ -26,8 +26,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 	    this.baseDatos.abrirBD()
-        .then(() => {this.baseDatos.createTableTarificaciones().then(()=> {alert("he creado la tabla")},(err)=>alert("error al crear la tabla"))
-        }, (err)=>{ alert('error al crear la bd '+err) })
+        .then(() => {this.baseDatos.createTableTarificaciones().then(()=> {},(err)=>console.log("error al crear la tabla" + err))
+        }, (err)=>{ console.log('error al crear la bd '+err) })
         
     });
   }

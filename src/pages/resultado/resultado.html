@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="menuProductos">
     <ion-card class="resultado">
         <ion-card-header>
           <h1>Su tarificación:</h1>
@@ -34,17 +34,25 @@
         </ion-card-content>
     </ion-card>
     <div>
+      <h2>Antiguas Tarificaciones</h2>
     <ion-card *ngFor='let anterior of anteriores' class="anteriorCard">
       <ion-card-content>
         <ion-grid>
+         <!-- <ion-row>
+                <ion-col>{{anterior.id}}</ion-col>
+          </ion-row>-->
           <ion-row>
-            <ion-col>{{anterior.fecha}}</ion-col><ion-col>Coberturas: <ion-badge class="badgeCobertura" item-right [hidden]='anterior.fallecimiento == 0'>Fallecimiento</ion-badge><ion-badge class="badgeCobertura" item-right [hidden]='anterior.incapacidad == 0'>Incapacidad</ion-badge></ion-col>
+            <ion-col>{{anterior.fecha}}</ion-col><ion-col><ion-item>Coberturas: <ion-badge class="badgeCobertura" item-right [hidden]='anterior.fallecimiento == 0'>FALL</ion-badge><ion-badge class="badgeCobertura" item-right [hidden]='anterior.incapacidad == 0'>IPA</ion-badge></ion-item></ion-col>
           </ion-row>
           <ion-row>
-            <ion-col>Importe Anual:{{anterior.importe}}</ion-col><ion-col>Primer Recibo: {{anterior.cuota}}</ion-col><ion-col>Impuestos: {{anterior.impuestos}}</ion-col>
+            <ion-col>Importe Anual</ion-col><ion-col>Primer Recibo:</ion-col><ion-col>Impuestos:</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>{{anterior.importe | number:'1.2-2'}}</ion-col><ion-col>{{anterior.cuota | number:'1.2-2'}}</ion-col><ion-col>{{anterior.impuestos | number:'1.2-2'}}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-card-content>
     </ion-card>
+    <button ion-button round (click)="limpiar()">Borrar Antiguas</button>
     </div>
 </ion-content>

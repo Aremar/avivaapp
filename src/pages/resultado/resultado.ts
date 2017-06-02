@@ -35,7 +35,7 @@ export class ResultadoPage {
      
      this.resultado = this.navParams.get('resultado');
      this.producto = this.navParams.get('producto');
-     this.fecha = this.navParams.get('fechatar');
+     this.fecha = new Date().toISOString();
      this.importeAnual = this.resultado.datos.conceptosEconomicosTotalizados.primaComercial;
      this.primerRecibo = this.resultado.datos.importePrimerRecibo;
      this.primaComercial = this.resultado.datos.conceptosEconomicosTotalizados.primaComercial;
@@ -49,11 +49,30 @@ export class ResultadoPage {
 	 //this.navCtrl.remove(5,1).then(() => {this.navCtrl.remove(4,1).then(() => {this.navCtrl.remove(3,1).then(() => {this.navCtrl.pop();})})});
   }
 
+  limpiar() {
+
+    this.db.limpieza().then(()=>{this.db.createTableTarificaciones()});
+
+    this.goRoot();
+
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultadoPage');
   }
   ionViewDidEnter(){
-    this.db.getLista().then((res)=>{
+
+    /*this.db.getLista().then((res)=>{
+      this.anteriores = [];
+     for(var i = 0; i < res.rows.length; i++){
+       this.anteriores.push({
+        id: res.rows.item(i).id
+       })
+
+     }*/
+    
+
+   this.db.getLista().then((res)=>{
       this.anteriores = [];
       for(var i = 0; i < res.rows.length; i++){ //fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad
           this.anteriores.push({ 
@@ -66,23 +85,22 @@ export class ResultadoPage {
           });
     }
 
-    },(err)=>{ alert('error al obtener datos de la bd'+err) })
+    },(err)=>{ console.log('error al obtener datos de la bd'+err) })
    }
    ionViewWillLeave(){
     //producto, fecha, importe_anual, cuota_mensual, total_impuestos, fallecimiento, incapacidad, json
       let tarificacion = {
           producto: this.producto,
-          fecha: this.fecha,
+          fecha: this.fecha.slice(0, -14),
           importe_anual: this.importeAnual,
           cuota_mensual: this.primerRecibo,
           total_impuestos: this.totalImpuestos,
           fallecimiento: this.fall,
           incapacidad: this.ipa,
-          json: this.resultado.toString()
+          json: JSON.stringify(this.resultado)
       }
-
-      this.db.addTarificacion(tarificacion).then(()=> {alert("Se ha introducido correctamente la tarificación en la base de datos")
-    },(err)=>{ alert('error al guardar datos de la bd'+err) }
+      this.db.addTarificacion(tarificacion).then(()=> {console.log("Se ha introducido correctamente la tarificación en la base de datos")
+    },(err)=>{ console.log('error al guardar datos de la bd'+err) }
     );
 
    }
