@@ -78,9 +78,13 @@ export class ServicioDatos {
 
 		this.grantAuthorize();		
 
+		//url para oAuth Autentication
 		let oauthURLaccess = this.URL + '/tarificador/oauth/token?grant_type=authorization_code&code='+ this.authorize +'&client_id='+this.client_id+'&client_secret='+this.client_secret+'&redirect_uri='+this.URL+'/test';
+		//ur para oAuth flujo implicito (esta deberia ser la que se use)
 		//let oauthURLimplicit = this.URL + '/tarificador/oauth/authorize?response_type=token&client_id=' + this.client_id + '&redirect_uri=' +  this.URL + '/test&scope=read';
+		//url para oAuth usr+pass
 		//let oauthURLpass = this.URL + '/tarificador/oauth/token?grant_type=password&username=ibh&password=flags0116*&client_id='+this.client_id;
+		//url para oAuth con credenciales
 		//let oauthURLcred = this.URL + '/tarificador/oauth/token?grant_type=client_credentials&client_id='+this.client_id+'&client_secret='+this.client_secret;
 
 		//obtiene el token OAuth
@@ -107,7 +111,7 @@ export class ServicioDatos {
 		
 		let tarificadorURL = this.URL + '/tarificador/simulate/';
 		let headers = new Headers();
-		headers.append('Authorization', 'Bearer ' + '7767f658-043b-4485-a5f1-d537093ccf5c');
+		headers.append('Authorization', 'Bearer ' + this.token);
 		headers.append('Content-Type', 'application/json');
 				
 		return this.http.post(tarificadorURL, cuerpo, {
